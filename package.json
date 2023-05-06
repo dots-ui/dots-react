@@ -1,0 +1,10 @@
+{
+  "name": "dots",
+  "version": "1.0.0",
+  "description": "Yet another React component library",
+  "main": "index.js",
+  "repository": "https://github.com/hackrmomo/dots",
+  "author": "Mohammad Al-Ahdal <mo@mohammad.dev>",
+  "license": "MIT",
+  "private": false
+}
