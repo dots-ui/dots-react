@@ -1,5 +1,5 @@
 {
-  "name": "dots-ui",
+  "name": "@dots.design/react",
   "version": "1.0.0",
   "description": "Yet another React component library",
   "main": "lib/index.js",
