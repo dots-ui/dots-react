@@ -1,6 +1,6 @@
 {
   "name": "@dots.design/react",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Yet another React component library",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -43,5 +43,9 @@
     "build": "rollup -c --bundleConfigAsCjs",
     "prepublishOnly": "yarn build",
     "publish": "npm publish --access public"
+  },
+  "dependencies": {
+    "@types/styled-components": "^5.1.26",
+    "styled-components": "^5.3.10"
   }
 }
