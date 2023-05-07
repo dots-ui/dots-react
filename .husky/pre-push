@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# This hook is called before publishing a branch/tag to a remote.
+
+yarn version --patch
