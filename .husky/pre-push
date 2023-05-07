@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
 
-# This hook is called before publishing a branch/tag to a remote.
-
-yarn version --patch
+yarn version --no-commit-hooks --no-git-tag-version --patch
+git add package.json
+git commit --no-verify -m "chore: bump version"

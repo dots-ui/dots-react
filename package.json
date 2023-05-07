@@ -1,6 +1,6 @@
 {
   "name": "@dots.design/react",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Yet another React component library",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -22,6 +22,7 @@
     "@storybook/react-webpack5": "^7.0.9",
     "@storybook/testing-library": "^0.0.14-next.2",
     "@types/react": "^18.2.6",
+    "husky": "^8.0.0",
     "postcss": "^8.4.23",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
@@ -43,15 +44,11 @@
     "build-storybook": "storybook build",
     "build": "rollup -c --bundleConfigAsCjs",
     "prepublishOnly": "yarn build",
-    "publish": "npm publish --access public"
+    "publish": "npm publish --access public",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@types/styled-components": "^5.1.26",
     "styled-components": "^5.3.10"
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "yarn version --patch"
-    }
   }
 }
