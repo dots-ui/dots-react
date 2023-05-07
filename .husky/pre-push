@@ -1,3 +1,0 @@
-yarn version --no-commit-hooks --no-git-tag-version --patch
-git add package.json
-HUSKY=0 git commit --amend --no-edit
