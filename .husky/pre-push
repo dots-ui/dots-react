@@ -5,4 +5,3 @@
 # git add package.json
 # git commit --no-verify -m "chore: bump version"
 # HUSKY=0 git push origin HEAD
-```
