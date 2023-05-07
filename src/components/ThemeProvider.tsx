@@ -1,5 +1,6 @@
 import React, { createContext } from "react";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
+import useDarkMode from "use-dark-mode"
 
 export type Palette = {
   primary: string;
@@ -11,6 +12,7 @@ export type Palette = {
   paper: string;
   background: string;
   text: string;
+  disabled: string;
 };
 
 export type Theme = {
@@ -29,6 +31,7 @@ export const defaultTheme: Theme = {
     paper: "#F1EBF7",
     background: "#FFFFFF",
     text: "#121212",
+    disabled: "#CCCCCC",
   },
   dark: {
     primary: "#661CB0",
@@ -37,9 +40,10 @@ export const defaultTheme: Theme = {
     warning: "#F5BD2E",
     error: "#EC2727",
     info: "#806996",
-    paper: "#261538",
+    paper: "#40235D",
     background: "#121212",
     text: "#FFFFFF",
+    disabled: "#333333",
   },
 };
 
@@ -49,10 +53,12 @@ export const ThemeProvider = (props: {
   children: React.ReactNode;
   theme?: Theme;
 }) => {
-  const { children, theme } = props;
+  const { children, theme: providedTheme } = props;
+  const darkMode = useDarkMode(false);
+  const theme = providedTheme ?? defaultTheme
   return (
-    <ThemeContext.Provider value={theme ?? defaultTheme}>
-      <StyledThemeProvider theme={theme ?? defaultTheme}>
+    <ThemeContext.Provider value={theme}>
+      <StyledThemeProvider theme={ darkMode.value ? theme.dark : theme.light }>
         {children}
       </StyledThemeProvider>
     </ThemeContext.Provider>

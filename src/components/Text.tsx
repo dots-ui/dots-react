@@ -45,7 +45,8 @@ export const Text = (props: TextProps) => {
     font-family: "Poppins", sans-serif;
     font-weight: ${(props) => variantMapping[variant ?? "p"].fontWeight};
     font-size: ${(props) => variantMapping[variant ?? "p"].fontSize};
-    color: ${(props) => {console.log(props.theme); return props.theme.text}};
+    color: ${(props) => props.theme.text};
   `;
+  // @ts-ignore
   return <TextElement {...props} />;
 };
