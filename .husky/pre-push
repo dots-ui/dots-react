@@ -4,3 +4,5 @@
 yarn version --no-commit-hooks --no-git-tag-version --patch
 git add package.json
 git commit --no-verify -m "chore: bump version"
+git push origin HEAD
+```
