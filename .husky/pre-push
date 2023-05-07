@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-yarn version --no-commit-hooks --no-git-tag-version --patch
-git add package.json
-git commit --no-verify -m "chore: bump version"
-HUSKY_SKIP_HOOKS=1 git push origin HEAD
+# yarn version --no-commit-hooks --no-git-tag-version --patch
+# git add package.json
+# git commit --no-verify -m "chore: bump version"
+# HUSKY=0 git push origin HEAD
 ```
