@@ -1,6 +1,6 @@
 {
   "name": "@dots.design/react",
-  "version": "0.0.28",
+  "version": "0.0.30",
   "description": "Yet another React component library",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
