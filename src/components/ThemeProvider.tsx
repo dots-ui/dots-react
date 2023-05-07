@@ -12,6 +12,7 @@ export type Palette = {
   paper: string;
   background: string;
   text: string;
+  disabled: string;
 };
 
 export type Theme = {
@@ -30,6 +31,7 @@ export const defaultTheme: Theme = {
     paper: "#F1EBF7",
     background: "#FFFFFF",
     text: "#121212",
+    disabled: "#CCCCCC",
   },
   dark: {
     primary: "#661CB0",
@@ -41,6 +43,7 @@ export const defaultTheme: Theme = {
     paper: "#40235D",
     background: "#121212",
     text: "#FFFFFF",
+    disabled: "#333333",
   },
 };
 
