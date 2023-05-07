@@ -43,8 +43,7 @@
     "build-storybook": "storybook build",
     "build": "rollup -c --bundleConfigAsCjs",
     "prepublishOnly": "yarn build",
-    "publish": "npm publish --access public",
-    "prepare": "husky install"
+    "publish": "npm publish --access public"
   },
   "dependencies": {
     "@types/styled-components": "^5.1.26",
