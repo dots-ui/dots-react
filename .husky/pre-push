@@ -3,6 +3,6 @@
 
 yarn version --no-commit-hooks --no-git-tag-version --patch
 git add package.json
-HUSKY=0 git commit --no-verify -m "chore: bump version"
-HUSKY=0 git push origin HEAD
+git commit --no-verify -m "chore: bump version"
+HUSKY_SKIP_HOOKS=1 git push origin HEAD
 ```
