@@ -1,6 +1,6 @@
 {
   "name": "@dots.design/react",
-  "version": "0.0.1",
+  "version": "0.0.0-development",
   "description": "Yet another React component library",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -22,6 +22,7 @@
     "@storybook/react-webpack5": "^7.0.9",
     "@storybook/testing-library": "^0.0.14-next.2",
     "@types/react": "^18.2.6",
+    "cz-conventional-changelog": "^3.3.0",
     "postcss": "^8.4.23",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
@@ -30,6 +31,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-typescript2": "^0.34.1",
+    "semantic-release": "^21.0.2",
     "storybook": "^7.0.9",
     "typescript": "^5.0.4",
     "use-dark-mode": "^2.3.1"
@@ -43,10 +45,16 @@
     "build-storybook": "storybook build",
     "build": "rollup -c --bundleConfigAsCjs",
     "prepublishOnly": "yarn build",
-    "publish": "npm publish --access public"
+    "publish": "npm publish --access public",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "@types/styled-components": "^5.1.26",
     "styled-components": "^5.3.10"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

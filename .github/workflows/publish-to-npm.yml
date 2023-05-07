@@ -34,7 +34,8 @@ jobs:
         run: yarn
       - name: Build
         run: yarn build
-      - uses: JS-DevTools/npm-publish@v2
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          access: 'public'
+      - name: Semantic release
+        run: yarn semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
