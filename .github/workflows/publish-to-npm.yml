@@ -9,6 +9,15 @@ jobs:
       - uses: actions/checkout@v3
       - name: Bump version
         run: yarn version --patch
+        id: bump
+      - name: Push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'Bump version to ${{ steps.bump.outputs.new_version }}'
+          commit_options: '--no-verify'
+          commit_user_name: 'GitHub Actions'
+          commit_user_email: 'hackrbot@hackrlabs.dev'
+          commit_author: 'HackrBot <hackrbot@hackrlabs.dev>'
   deploy:
     needs:  bump
     runs-on: ubuntu-latest
