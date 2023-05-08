@@ -45,7 +45,6 @@
     "build-storybook": "storybook build",
     "build": "rollup -c --bundleConfigAsCjs",
     "prepublishOnly": "yarn build",
-    "publish": "npm publish --access public",
     "semantic-release": "semantic-release"
   },
   "dependencies": {
