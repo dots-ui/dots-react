@@ -18,10 +18,9 @@ jobs:
         run: yarn
       - name: Build
         run: yarn build
-      - name: Congigure npmrc
+      - name: Configure npmrc
         run: |
           npm config set registry https://registry.npmjs.org/
-          npm config set always-auth true
           npm config set //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
       - name: Semantic release
         run: yarn semantic-release --debug
