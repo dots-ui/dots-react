@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
   "types": "lib/index.d.ts",
-  "repository": "https://github.com/hackrmomo/dots",
+  "repository": "https://github.com/dotsui-design/dots-react",
   "author": "Mohammad Al-Ahdal <mo@mohammad.dev>",
   "license": "MIT",
   "private": false,
@@ -71,6 +71,7 @@
         "name": "alpha",
         "prerelease": true
       }
-    ]
+    ],
+    "repositoryUrl": "https://github.com/dotsui-design/dots-react"
   }
 }
