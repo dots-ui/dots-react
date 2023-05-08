@@ -3,26 +3,7 @@ on:
     branches:
       - main
 jobs:
-  bump:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set Git config
-        run: |
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'gh@hackrlabs.dev'
-      - name: Bump version
-        run: yarn version --patch
-        id: bump
-      - name: Push changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: 'Bump version to ${{ steps.bump.outputs.new_version }}'
-          commit_options: '--no-verify'
-          commit_user_name: 'GitHub Actions'
-          commit_user_email: 'gh@hackrlabs.dev'
   deploy:
-    needs:  bump
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
