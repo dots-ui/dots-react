@@ -16,7 +16,7 @@ jobs:
       - name: Build
         run: yarn build
       - name: Semantic release
-        run: yarn semantic-release
+        run: yarn semantic-release --debug
         env:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
