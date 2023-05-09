@@ -1,6 +1,7 @@
 import React from "react";
 import "./css/main.css";
 import styled from "styled-components";
+import { getThemeValue } from "./ThemeProvider";
 
 export type TextProps = React.HTMLAttributes<
   HTMLHeadingElement | HTMLParagraphElement
@@ -50,5 +51,5 @@ const TextElement = styled.p<TextProps>`
   font-family: "Poppins", sans-serif;
   font-weight: ${(props) => variantMapping[props.variant ?? "p"].fontWeight};
   font-size: ${(props) => variantMapping[props.variant ?? "p"].fontSize};
-  color: ${(props) => props.theme.text};
+  color: ${(props) => props.theme.text ?? getThemeValue("text")};
 `;
