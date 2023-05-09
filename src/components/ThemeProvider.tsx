@@ -64,3 +64,9 @@ export const ThemeProvider = (props: {
     </ThemeContext.Provider>
   );
 }
+
+export const getThemeValue = (key: keyof Palette) => {
+  const theme = React.useContext(ThemeContext);
+  const darkMode = useDarkMode(false);
+  return darkMode.value ? theme.dark[key] : theme.light[key];
+}

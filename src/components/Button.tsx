@@ -1,6 +1,7 @@
 import React from "react";
 import "./css/main.css";
 import styled from "styled-components";
+import { getThemeValue } from "./ThemeProvider";
 
 export type ButtonProps = React.HTMLAttributes<
   HTMLButtonElement | HTMLAnchorElement
@@ -58,41 +59,51 @@ export const Button = (props: ButtonProps) => {
     }};
     border: ${(props) => {
       if (variant !== "outlined") return "none";
-      return `1px solid ${props.theme[accent || "info"]}`;
+      return `1px solid ${
+        props.theme[accent || "info"] ?? getThemeValue(accent || "info")
+      }`;
     }};
     background-color: ${(props) => {
-      if (variant === "contained") return props.theme[accent || "info"];
+      if (variant === "contained")
+        return props.theme[accent || "info"] ?? getThemeValue(accent || "info");
       return "transparent";
     }};
     color: ${(props) => {
       if (variant === "contained") return "#fff";
-      return props.theme[accent || "info"];
+      return props.theme[accent || "info"] ?? getThemeValue(accent || "info");
     }};
 
     &:disabled {
       border: ${(props) => {
         if (variant !== "outlined") return "none";
-        return `1px solid ${props.theme.disabled}`;
+        return `1px solid ${props.theme.disabled ?? getThemeValue("disabled")}`;
       }};
       background-color: ${(props) => {
-        if (variant === "contained") return props.theme.disabled;
+        if (variant === "contained")
+          return props.theme.disabled ?? getThemeValue("disabled");
         return "transparent";
       }};
       color: ${(props) => {
         if (variant === "contained") return "#fff";
-        return props.theme.disabled;
+        return props.theme.disabled ?? getThemeValue("disabled");
       }};
     }
 
     &:hover:not(:disabled) {
       filter: drop-shadow(
-          0em 0.125em 0.625em ${(props) => props.theme[accent || "info"]}80
+          0em 0.125em 0.625em
+            ${(props) =>
+              props.theme[accent || "info"] ??
+              getThemeValue(accent || "info")}80
         )
         brightness(110%);
     }
     &:active:not(:disabled) {
       filter: drop-shadow(
-          0em 0.0625em 0.3125em ${(props) => props.theme[accent || "info"]}80
+          0em 0.0625em 0.3125em
+            ${(props) =>
+              props.theme[accent || "info"] ??
+              getThemeValue(accent || "info")}80
         )
         brightness(80%);
     }
