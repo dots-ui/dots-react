@@ -1,6 +1,7 @@
 import React, { createContext } from "react";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
-import useDarkMode from "use-dark-mode"
+import { PartialDeep } from "type-fest";
+import useDarkMode from "use-dark-mode";
 
 export type Palette = {
   primary: string;
@@ -20,7 +21,7 @@ export type Theme = {
   dark: Palette;
 };
 
-export const defaultTheme: Theme = {
+export const defaultTheme: PartialDeep<Theme> = {
   light: {
     primary: "#9649E3",
     secondary: "#AE8BFA",
@@ -51,22 +52,22 @@ export const ThemeContext = createContext(defaultTheme);
 
 export const ThemeProvider = (props: {
   children: React.ReactNode;
-  theme?: Theme;
+  theme?: PartialDeep<Theme>;
 }) => {
   const { children, theme: providedTheme } = props;
   const darkMode = useDarkMode(false);
-  const theme = providedTheme ?? defaultTheme
+  const theme = providedTheme ?? defaultTheme;
   return (
     <ThemeContext.Provider value={theme}>
-      <StyledThemeProvider theme={ darkMode.value ? theme.dark : theme.light }>
+      <StyledThemeProvider theme={darkMode.value ? theme.dark : theme.light}>
         {children}
       </StyledThemeProvider>
     </ThemeContext.Provider>
   );
-}
+};
 
 export const getThemeValue = (key: keyof Palette) => {
-  const theme = React.useContext(ThemeContext);
+  const theme = React.useContext(ThemeContext) ?? defaultTheme;
   const darkMode = useDarkMode(false);
-  return darkMode.value ? theme.dark[key] : theme.light[key];
-}
+  return darkMode.value ? theme.dark![key] : theme.light![key];
+};
