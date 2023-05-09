@@ -17,7 +17,7 @@
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/dotsui-design/dots-react/main/.github/assets/dotsui-logo.png" alt="Dots UI" width="100%">
+  <img src="https://raw.githubusercontent.com/dotsui-design/dots-react/main/.github/assets/dotsui-logo.png" alt="Dots UI" width="300px">
 </p>
 
 ## Introduction
