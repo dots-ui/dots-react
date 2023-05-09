@@ -16,14 +16,10 @@ export type ButtonProps = React.HTMLAttributes<
 };
 
 export const Button = (props: ButtonProps) => {
-  const { variant, accent } = props;
-  const ButtonElement = createButtonElement(props);
-  return <ButtonElement {...props} />;
+  return <ButtonElement as={props.href ? "a" : "button"} {...props} />;
 };
 
-const createButtonElement = (props: ButtonProps) => styled(
-  props.href ? "a" : "button"
-)<ButtonProps>`
+const ButtonElement = styled.button<ButtonProps>`
   font-size: ${(props) => {
     if (props.size === "small") return "0.75em";
     if (props.size === "large") return "1.25em";
@@ -66,17 +62,24 @@ const createButtonElement = (props: ButtonProps) => styled(
   border: ${(props) => {
     if (props.variant !== "outlined") return "none";
     return `1px solid ${
-      props.theme[props.accent || "info"] ?? getThemeValue(props.accent || "info")
+      props.theme[props.accent || "info"] ??
+      getThemeValue(props.accent || "info")
     }`;
   }};
   background-color: ${(props) => {
     if (props.variant === "contained")
-      return props.theme[props.accent || "info"] ?? getThemeValue(props.accent || "info");
+      return (
+        props.theme[props.accent || "info"] ??
+        getThemeValue(props.accent || "info")
+      );
     return "transparent";
   }};
   color: ${(props) => {
     if (props.variant === "contained") return "#fff";
-    return props.theme[props.accent || "info"] ?? getThemeValue(props.accent || "info");
+    return (
+      props.theme[props.accent || "info"] ??
+      getThemeValue(props.accent || "info")
+    );
   }};
 
   &:disabled {
@@ -99,7 +102,8 @@ const createButtonElement = (props: ButtonProps) => styled(
     filter: drop-shadow(
         0em 0.125em 0.625em
           ${(props) =>
-            props.theme[props.accent || "info"] ?? getThemeValue(props.accent || "info")}80
+            props.theme[props.accent || "info"] ??
+            getThemeValue(props.accent || "info")}80
       )
       brightness(110%);
   }
@@ -107,7 +111,8 @@ const createButtonElement = (props: ButtonProps) => styled(
     filter: drop-shadow(
         0em 0.0625em 0.3125em
           ${(props) =>
-            props.theme[props.accent || "info"] ?? getThemeValue(props.accent || "info")}80
+            props.theme[props.accent || "info"] ??
+            getThemeValue(props.accent || "info")}80
       )
       brightness(80%);
   }
