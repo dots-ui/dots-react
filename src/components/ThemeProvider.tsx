@@ -1,6 +1,5 @@
 import React from "react";
 import { PartialDeep } from "type-fest";
-import useDarkMode from "use-dark-mode";
 
 export type Palette = {
   primary: string;
@@ -58,11 +57,5 @@ export const ThemeProvider = (props: {
 };
 
 export const getThemeValue = (key: keyof Palette) => {
-  try {
-    const darkMode = useDarkMode(false);
-    return darkMode.value ? defaultTheme.dark![key] : defaultTheme.light![key];
-  } catch {
-    defaultTheme.light![key];
-    // in case of error, return the default value
-  }
+  return defaultTheme.light![key];
 };
