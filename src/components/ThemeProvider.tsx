@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React from "react";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { PartialDeep } from "type-fest";
 import useDarkMode from "use-dark-mode";
@@ -48,21 +48,17 @@ export const defaultTheme: PartialDeep<Theme> = {
   },
 };
 
-export const ThemeContext = createContext(defaultTheme);
-
 export const ThemeProvider = (props: {
   children: React.ReactNode;
   theme?: PartialDeep<Theme>;
-  dark?: boolean
+  dark?: boolean;
 }) => {
   const { children, theme: providedTheme, dark } = props;
   const theme = providedTheme ?? defaultTheme;
   return (
-    <ThemeContext.Provider value={theme}>
-      <StyledThemeProvider theme={dark ? theme.dark : theme.light}>
-        {children}
-      </StyledThemeProvider>
-    </ThemeContext.Provider>
+    <StyledThemeProvider theme={dark ? theme.dark : theme.light}>
+      {children}
+    </StyledThemeProvider>
   );
 };
 
@@ -74,19 +70,16 @@ export const StorybookThemeProvider = (props: {
   const darkMode = useDarkMode(false);
   const theme = providedTheme ?? defaultTheme;
   return (
-    <ThemeContext.Provider value={theme}>
-      <StyledThemeProvider theme={darkMode.value ? theme.dark : theme.light}>
-        {children}
-      </StyledThemeProvider>
-    </ThemeContext.Provider>
+    <StyledThemeProvider theme={darkMode.value ? theme.dark : theme.light}>
+      {children}
+    </StyledThemeProvider>
   );
 };
 
 export const getThemeValue = (key: keyof Palette) => {
   try {
-    const theme = React.useContext(ThemeContext) ?? defaultTheme;
     const darkMode = useDarkMode(false);
-    return darkMode.value ? theme.dark![key] : theme.light![key];
+    return darkMode.value ? defaultTheme.dark![key] : defaultTheme.light![key];
   } catch {
     defaultTheme.light![key];
     // in case of error, return the default value
