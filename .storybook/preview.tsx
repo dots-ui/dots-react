@@ -1,5 +1,5 @@
 import React from "react";
-import { ThemeProvider } from "../src/components/ThemeProvider";
+import { StorybookThemeProvider } from "../src/components/ThemeProvider";
 import type { Preview } from "@storybook/react";
 import {
   ThemeDefaultBackground,
@@ -26,12 +26,12 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <ThemeProvider>
+      <StorybookThemeProvider>
         <ThemeDefaultBackground>
           <ToggleThemeButton />
           <Story />
         </ThemeDefaultBackground>
-      </ThemeProvider>
+      </StorybookThemeProvider>
     ),
   ],
 };
