@@ -62,20 +62,6 @@ export const ThemeProvider = (props: {
   );
 };
 
-export const StorybookThemeProvider = (props: {
-  children: React.ReactNode;
-  theme?: PartialDeep<Theme>;
-}) => {
-  const { children, theme: providedTheme } = props;
-  const darkMode = useDarkMode(false);
-  const theme = providedTheme ?? defaultTheme;
-  return (
-    <StyledThemeProvider theme={darkMode.value ? theme.dark : theme.light}>
-      {children}
-    </StyledThemeProvider>
-  );
-};
-
 export const getThemeValue = (key: keyof Palette) => {
   try {
     const darkMode = useDarkMode(false);

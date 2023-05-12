@@ -1,5 +1,5 @@
 import React from "react";
-import { StorybookThemeProvider } from "../src/components/ThemeProvider";
+import { StorybookThemeProvider } from "../src/stories/ThemeUtility";
 import type { Preview } from "@storybook/react";
 import {
   ThemeDefaultBackground,

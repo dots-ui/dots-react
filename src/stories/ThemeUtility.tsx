@@ -1,6 +1,23 @@
 import React from "react";
 import useDarkMode from "use-dark-mode";
 import styled from "styled-components";
+import { PartialDeep } from "type-fest";
+import { ThemeProvider as StyledThemeProvider } from "styled-components";
+import { defaultTheme, Theme } from "../components/ThemeProvider";
+
+export const StorybookThemeProvider = (props: {
+  children: React.ReactNode;
+  theme?: PartialDeep<Theme>;
+}) => {
+  const { children, theme: providedTheme } = props;
+  const darkMode = useDarkMode(false);
+  const theme = providedTheme ?? defaultTheme;
+  return (
+    <StyledThemeProvider theme={darkMode.value ? theme.dark : theme.light}>
+      {children}
+    </StyledThemeProvider>
+  );
+};
 
 export const ToggleThemeButton = () => {
   const { value, toggle } = useDarkMode(false);
