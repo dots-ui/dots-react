@@ -1,5 +1,4 @@
 import React from "react";
-import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { PartialDeep } from "type-fest";
 import useDarkMode from "use-dark-mode";
 
@@ -55,11 +54,7 @@ export const ThemeProvider = (props: {
 }) => {
   const { children, theme: providedTheme, dark } = props;
   const theme = providedTheme ?? defaultTheme;
-  return (
-    <StyledThemeProvider theme={dark ? theme.dark : theme.light}>
-      {children}
-    </StyledThemeProvider>
-  );
+  return { children };
 };
 
 export const getThemeValue = (key: keyof Palette) => {
