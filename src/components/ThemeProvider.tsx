@@ -53,6 +53,22 @@ export const ThemeContext = createContext(defaultTheme);
 export const ThemeProvider = (props: {
   children: React.ReactNode;
   theme?: PartialDeep<Theme>;
+  dark?: boolean
+}) => {
+  const { children, theme: providedTheme, dark } = props;
+  const theme = providedTheme ?? defaultTheme;
+  return (
+    <ThemeContext.Provider value={theme}>
+      <StyledThemeProvider theme={dark ? theme.dark : theme.light}>
+        {children}
+      </StyledThemeProvider>
+    </ThemeContext.Provider>
+  );
+};
+
+export const StorybookThemeProvider = (props: {
+  children: React.ReactNode;
+  theme?: PartialDeep<Theme>;
 }) => {
   const { children, theme: providedTheme } = props;
   const darkMode = useDarkMode(false);
