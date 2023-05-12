@@ -83,7 +83,12 @@ export const StorybookThemeProvider = (props: {
 };
 
 export const getThemeValue = (key: keyof Palette) => {
-  const theme = React.useContext(ThemeContext) ?? defaultTheme;
-  const darkMode = useDarkMode(false);
-  return darkMode.value ? theme.dark![key] : theme.light![key];
+  try {
+    const theme = React.useContext(ThemeContext) ?? defaultTheme;
+    const darkMode = useDarkMode(false);
+    return darkMode.value ? theme.dark![key] : theme.light![key];
+  } catch {
+    defaultTheme.light![key];
+    // in case of error, return the default value
+  }
 };
