@@ -9,9 +9,10 @@ export const Background = (props: { children: React.ReactNode }) => {
 };
 
 const StyledBackground = styled.div`
-  background-color: ${(props) =>
+  background-color: #3399CC;
+  /* background-color: ${(props) =>
     props.theme.background ?? getThemeValue("background")};
-  color: ${(props) => props.theme.text ?? getThemeValue("text")};
+  color: ${(props) => props.theme.text ?? getThemeValue("text")}; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
