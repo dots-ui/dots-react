@@ -49,6 +49,7 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
+    "next": "^13.4.2",
     "styled-components": "6.0.0-rc.1"
   },
   "config": {
