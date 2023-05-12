@@ -13,7 +13,7 @@ export const StorybookThemeProvider = (props: {
   const darkMode = useDarkMode(false);
   const theme = providedTheme ?? defaultTheme;
   return (
-    <StyledThemeProvider theme={darkMode.value ? theme.dark : theme.light}>
+    <StyledThemeProvider theme={(darkMode.value ? theme.dark : theme.light) ?? {}}>
       {children}
     </StyledThemeProvider>
   );
